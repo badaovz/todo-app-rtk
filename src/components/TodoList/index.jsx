@@ -1,13 +1,9 @@
-import { Button, Col, Input, Row, Tag, Select, Space } from 'antd';
-import Todo from '../Todo';
+import { Button, Col, Input, Row, Select, Space, Tag } from 'antd';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    statusFilterSelector,
-    todoListSelector,
-    todoRemainingSelector,
-} from '../../redux/selector';
 import { v4 as uuidv4 } from 'uuid';
+import { todoRemainingSelector } from '../../redux/selector';
+import Todo from '../Todo';
 import { addTodo } from './todoSlice';
 
 const TodoList = () => {
@@ -41,9 +37,6 @@ const TodoList = () => {
     };
 
     const todoList = useSelector(todoRemainingSelector);
-    const { status } = useSelector(todoListSelector);
-
-    if (status === 'loading') return <h3>Loading... sss</h3>;
 
     return (
         <Row style={{ height: 'calc(100% - 40px)' }}>

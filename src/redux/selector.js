@@ -11,7 +11,7 @@ export const todoRemainingSelector = createSelector(
     statusFilterSelector,
     priorityFilterSelector,
     (todoList, textSearch, status, priorities) => {
-        return todoList.todos.filter((todo) => {
+        return todoList.filter((todo) => {
             let todoWithSearch = todo.name
                 .toLowerCase()
                 .includes(textSearch.toLowerCase());
