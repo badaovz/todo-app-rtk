@@ -13,3 +13,13 @@
     border-radius: 5px;
     height: 90vh;
 }
+
+.ant-select-selector {
+    /* padding-inline: 0 22px !important; */
+}
+
+@media (max-width: 639px) {
+    .app {
+        width: 95vw;
+    }
+}

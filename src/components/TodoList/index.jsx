@@ -39,7 +39,7 @@ const TodoList = () => {
     const todoList = useSelector(todoRemainingSelector);
 
     return (
-        <Row style={{ height: 'calc(100% - 40px)' }}>
+        <Row style={{ height: 'calc(100% - 40px)', overflow: 'auto' }}>
             <Col
                 span={24}
                 style={{ height: 'calc(100% - 40px)', overflowY: 'auto' }}

@@ -1,6 +1,6 @@
 import { Col, Row, Typography, Input, Radio, Select, Tag } from 'antd';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
     priorityFilterChange,
     searchFilerChange,
@@ -10,9 +10,11 @@ import {
 const { Search } = Input;
 
 const Filter = () => {
-    const [searchText, setSearchText] = useState('');
-    const [filterStatus, setFilterStatus] = useState('All');
-    const [filterPriority, setFilterPriority] = useState([]);
+    const filters = useSelector((state) => state.filters);
+    const { search, status, priorities } = filters;
+    const [searchText, setSearchText] = useState(search);
+    const [filterStatus, setFilterStatus] = useState(status);
+    const [filterPriority, setFilterPriority] = useState(priorities);
     const dispatch = useDispatch();
 
     const handleSearchTextChange = (e) => {
@@ -24,12 +26,9 @@ const Filter = () => {
         dispatch(statusFilterChange(e.target.value));
     };
     const handlePriorityChange = (value) => {
-        console.log('Value: ', value);
         setFilterPriority(value);
         dispatch(priorityFilterChange(value));
     };
-
-    console.log('FilterPriority: ', filterPriority);
 
     return (
         <Row justify='center'>
